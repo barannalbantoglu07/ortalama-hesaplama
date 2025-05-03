@@ -11,6 +11,9 @@
             margin: 0;
             padding: 15px;
             background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         .module { 
             background: #fff;
@@ -78,6 +81,18 @@
             font-style: italic;
             font-size: 0.9rem;
             margin: 5px 0 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            color: #777;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+        }
+        .developer {
+            font-weight: 600;
+            color: #2b6cb0;
         }
 
         /* Mobil için ekstra ayarlar */
@@ -243,6 +258,11 @@
     <button onclick="calculate()">HESAPLA</button>
     <div id="result"></div>
 
+    <!-- Footer -->
+    <footer>
+        <p>Developed with ❤️ by <span class="developer">barann</span> & <span class="developer">DeepSeek</span></p>
+    </footer>
+
     <script>
         function calculateAverage(...scores) {
             const validScores = scores.filter(score => !isNaN(score));
@@ -252,7 +272,6 @@
 
         function calculate() {
             // 1. MODÜL HESAPLAMA
-            // Pop Quiz'ler (4 adet, her biri %2.5)
             const mod1_pq_scores = [
                 parseFloat(document.getElementById("mod1_pq1").value),
                 parseFloat(document.getElementById("mod1_pq2").value),
@@ -262,7 +281,6 @@
             const mod1_pq_avg = calculateAverage(...mod1_pq_scores);
             document.getElementById("mod1_pq_avg").innerHTML = `Pop Quiz Ortalama: ${mod1_pq_avg.toFixed(2)}`;
 
-            // Kısa Sınavlar (4 adet, her biri %5)
             const mod1_ks_scores = [
                 parseFloat(document.getElementById("mod1_ks1").value),
                 parseFloat(document.getElementById("mod1_ks2").value),
@@ -272,14 +290,12 @@
             const mod1_ks_avg = calculateAverage(...mod1_ks_scores);
             document.getElementById("mod1_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${mod1_ks_avg.toFixed(2)}`;
 
-            // Diğer bileşenler
             const mod1_spoken = parseFloat(document.getElementById("mod1_spoken").value) || 0;
             const mod1_online = parseFloat(document.getElementById("mod1_online").value) || 0;
             const mod1_presentation = parseFloat(document.getElementById("mod1_presentation").value) || 0;
             const mod1_midterm = parseFloat(document.getElementById("mod1_midterm").value) || 0;
             const mod1_final_module = parseFloat(document.getElementById("mod1_final_module").value) || 0;
 
-            // 1. Modül Toplam (%30)
             const mod1_total = 
                 (mod1_pq_avg * 0.1) + 
                 (mod1_spoken * 0.1) + 
