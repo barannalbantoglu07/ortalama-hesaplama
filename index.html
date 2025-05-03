@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Öğrenci Not Hesaplama</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module { background: #f5f5f5; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+        input { padding: 8px; margin: 5px; width: 80px; }
+        button { padding: 10px 15px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        #result { font-weight: bold; margin-top: 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Öğrenci Not Hesaplama Aracı</h1>
+
+    <!-- 1. MODÜL -->
+    <div class="module">
+        <h2>1. MODÜL (%30)</h2>
+        <label>4 Pop Quiz Ortalama:</label>
+        <input type="number" id="mod1_quiz"><br>
+        <label>In-Class Spoken Test:</label>
+        <input type="number" id="mod1_spoken"><br>
+        <label>Online Platform:</label>
+        <input type="number" id="mod1_online"><br>
+        <label>1 Presentation:</label>
+        <input type="number" id="mod1_presentation"><br>
+        <h3>Sınavlar (1. Modül İçin)</h3>
+        <label>4 Kısa Sınav Ortalama:</label>
+        <input type="number" id="mod1_short_exams"><br>
+        <label>1 Ara Sınav:</label>
+        <input type="number" id="mod1_midterm"><br>
+        <label>1 Modül Atlama Sınavı:</label>
+        <input type="number" id="mod1_final_module"><br>
+    </div>
+
+    <!-- 2. MODÜL -->
+    <div class="module">
+        <h2>2. MODÜL (%30)</h2>
+        <label>4 Pop Quiz Ortalama:</label>
+        <input type="number" id="mod2_quiz"><br>
+        <label>In-Class Spoken Test:</label>
+        <input type="number" id="mod2_spoken"><br>
+        <label>Online Platform:</label>
+        <input type="number" id="mod2_online"><br>
+        <label>1 Presentation:</label>
+        <input type="number" id="mod2_presentation"><br>
+        <h3>Sınavlar (2. Modül İçin)</h3>
+        <label>4 Kısa Sınav Ortalama:</label>
+        <input type="number" id="mod2_short_exams"><br>
+        <label>1 Ara Sınav:</label>
+        <input type="number" id="mod2_midterm"><br>
+        <label>1 Modül Atlama Sınavı:</label>
+        <input type="number" id="mod2_final_module"><br>
+    </div>
+
+    <!-- YIL SONU SINAVI -->
+    <div class="module">
+        <h2>Yıl Sonu Sınavı (%40)</h2>
+        <label>Yıl Sonu Sınav Notu:</label>
+        <input type="number" id="final_exam"><br>
+    </div>
+
+    <button onclick="calculate()">Hesapla</button>
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            // 1. MODÜL HESAPLAMA (%30)
+            const mod1_quiz = parseFloat(document.getElementById("mod1_quiz").value) || 0;
+            const mod1_spoken = parseFloat(document.getElementById("mod1_spoken").value) || 0;
+            const mod1_online = parseFloat(document.getElementById("mod1_online").value) || 0;
+            const mod1_presentation = parseFloat(document.getElementById("mod1_presentation").value) || 0;
+            const mod1_short_exams = parseFloat(document.getElementById("mod1_short_exams").value) || 0;
+            const mod1_midterm = parseFloat(document.getElementById("mod1_midterm").value) || 0;
+            const mod1_final_module = parseFloat(document.getElementById("mod1_final_module").value) || 0;
+
+            const mod1_total = 
+                (mod1_quiz * 0.1) + 
+                (mod1_spoken * 0.1) + 
+                (mod1_online * 0.1) + 
+                (mod1_presentation * 0.1) +
+                (mod1_short_exams * 0.2) + 
+                (mod1_midterm * 0.15) + 
+                (mod1_final_module * 0.25);
+
+            // 2. MODÜL HESAPLAMA (%30)
+            const mod2_quiz = parseFloat(document.getElementById("mod2_quiz").value) || 0;
+            const mod2_spoken = parseFloat(document.getElementById("mod2_spoken").value) || 0;
+            const mod2_online = parseFloat(document.getElementById("mod2_online").value) || 0;
+            const mod2_presentation = parseFloat(document.getElementById("mod2_presentation").value) || 0;
+            const mod2_short_exams = parseFloat(document.getElementById("mod2_short_exams").value) || 0;
+            const mod2_midterm = parseFloat(document.getElementById("mod2_midterm").value) || 0;
+            const mod2_final_module = parseFloat(document.getElementById("mod2_final_module").value) || 0;
+
+            const mod2_total = 
+                (mod2_quiz * 0.1) + 
+                (mod2_spoken * 0.1) + 
+                (mod2_online * 0.1) + 
+                (mod2_presentation * 0.1) +
+                (mod2_short_exams * 0.2) + 
+                (mod2_midterm * 0.15) + 
+                (mod2_final_module * 0.25);
+
+            // YIL SONU SINAVI (%40)
+            const final_exam = parseFloat(document.getElementById("final_exam").value) || 0;
+
+            // GENEL ORTALAMA
+            const total = (mod1_total * 0.3) + (mod2_total * 0.3) + (final_exam * 0.4);
+            document.getElementById("result").innerHTML = `Genel Not Ortalaması: ${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
