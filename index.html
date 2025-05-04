@@ -4,12 +4,34 @@
     <title>Detaylı Not Hesaplama</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* UYARI BANNER */
+        .warning-banner {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ffeeba;
+            font-size: 0.95rem;
+            font-weight: bold;
+            position: relative;
+        }
+        .warning-banner .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* GENEL STİLLER */
         * { box-sizing: border-box; }
         body { 
             font-family: Arial, sans-serif; 
             max-width: 100%;
             margin: 0;
-            padding: 15px;
+            padding: 0;
             background-color: #f9f9f9;
             min-height: 100vh;
             display: flex;
@@ -18,7 +40,7 @@
         .module { 
             background: #fff;
             padding: 15px;
-            margin-bottom: 15px;
+            margin: 15px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -26,6 +48,7 @@
             text-align: center;
             color: #2c3e50;
             font-size: 1.5rem;
+            margin: 15px;
         }
         h2, h3 {
             color: #3498db;
@@ -57,8 +80,8 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            width: 100%;
-            margin-top: 15px;
+            width: calc(100% - 30px);
+            margin: 15px;
             transition: background 0.3s;
         }
         button:hover {
@@ -95,7 +118,7 @@
             color: #2b6cb0;
         }
 
-        /* Mobil için ekstra ayarlar */
+        /* MOBİL UYUMLULUK */
         @media (max-width: 600px) {
             .input-group {
                 flex-direction: column;
@@ -119,13 +142,18 @@
     </style>
 </head>
 <body>
+    <!-- UYARI BANNER -->
+    <div class="warning-banner" id="warningBanner">
+        ⚠️ Bu araç tahmini sonuçlar üretir. Kesin notlar için lütfen kendiniz elle hesaplayın.
+        <span class="close-btn" onclick="document.getElementById('warningBanner').style.display='none'">×</span>
+    </div>
+
     <h1>Detaylı Not Hesaplama Aracı</h1>
 
     <!-- 1. MODÜL -->
     <div class="module">
         <h2>1. MODÜL (%30)</h2>
         
-        <!-- 1. Modül Pop Quiz'ler -->
         <h3>4 Pop Quiz (Her biri %2.5, Toplam %10)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -143,7 +171,6 @@
             <div class="average" id="mod1_pq_avg"></div>
         </div>
 
-        <!-- Diğer bileşenler -->
         <div class="input-group">
             <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod1_spoken">
         </div>
@@ -154,7 +181,6 @@
             <label>Presentation (%10):</label> <input type="number" id="mod1_presentation">
         </div>
 
-        <!-- 1. Modül Kısa Sınavlar -->
         <h3>4 Kısa Sınav (Her biri %5, Toplam %20)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -172,7 +198,6 @@
             <div class="average" id="mod1_ks_avg"></div>
         </div>
 
-        <!-- Diğer sınavlar -->
         <div class="input-group">
             <label>Ara Sınav (%15):</label> <input type="number" id="mod1_midterm">
         </div>
@@ -180,7 +205,6 @@
             <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod1_final_module">
         </div>
         
-        <!-- 1. Modül Sonucu -->
         <div class="module-result" id="mod1_result"></div>
     </div>
 
@@ -188,7 +212,6 @@
     <div class="module">
         <h2>2. MODÜL (%30)</h2>
         
-        <!-- 2. Modül Pop Quiz'ler -->
         <h3>4 Pop Quiz (Her biri %2.5, Toplam %10)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -206,7 +229,6 @@
             <div class="average" id="mod2_pq_avg"></div>
         </div>
 
-        <!-- Diğer bileşenler -->
         <div class="input-group">
             <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod2_spoken">
         </div>
@@ -217,7 +239,6 @@
             <label>Presentation (%10):</label> <input type="number" id="mod2_presentation">
         </div>
 
-        <!-- 2. Modül Kısa Sınavlar -->
         <h3>4 Kısa Sınav (Her biri %5, Toplam %20)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -235,7 +256,6 @@
             <div class="average" id="mod2_ks_avg"></div>
         </div>
 
-        <!-- Diğer sınavlar -->
         <div class="input-group">
             <label>Ara Sınav (%15):</label> <input type="number" id="mod2_midterm">
         </div>
@@ -243,7 +263,6 @@
             <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod2_final_module">
         </div>
         
-        <!-- 2. Modül Sonucu -->
         <div class="module-result" id="mod2_result"></div>
     </div>
 
@@ -256,9 +275,9 @@
     </div>
 
     <button onclick="calculate()">HESAPLA</button>
-    <div id="result"></div>
+    <div id="result" style="margin: 0 15px 15px 15px;"></div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <p>Developed with ❤️ by <span class="developer">barann</span> & <span class="developer">DeepSeek</span></p>
     </footer>
