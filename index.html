@@ -144,7 +144,7 @@
 <body>
     <!-- UYARI BANNER -->
     <div class="warning-banner" id="warningBanner">
-        ⚠️ Bu araç tahmini sonuçlar üretir. Kesin sonuçlar için lütfen kendiniz elle hesaplayın.
+        ⚠️ Bu araç tahmini sonuçlar üretir. Kesin notlar için lütfen eğitmeninize danışın.
         <span class="close-btn" onclick="document.getElementById('warningBanner').style.display='none'">×</span>
     </div>
 
@@ -289,31 +289,36 @@
             return validScores.reduce((a, b) => a + b, 0) / validScores.length;
         }
 
+        function getInputValue(id) {
+            const value = document.getElementById(id).value.trim();
+            return value === "" ? NaN : parseFloat(value);
+        }
+
         function calculate() {
             // 1. MODÜL HESAPLAMA
             const mod1_pq_scores = [
-                parseFloat(document.getElementById("mod1_pq1").value),
-                parseFloat(document.getElementById("mod1_pq2").value),
-                parseFloat(document.getElementById("mod1_pq3").value),
-                parseFloat(document.getElementById("mod1_pq4").value)
+                getInputValue("mod1_pq1"),
+                getInputValue("mod1_pq2"),
+                getInputValue("mod1_pq3"),
+                getInputValue("mod1_pq4")
             ];
             const mod1_pq_avg = calculateAverage(...mod1_pq_scores);
-            document.getElementById("mod1_pq_avg").innerHTML = `Pop Quiz Ortalama: ${mod1_pq_avg.toFixed(2)}`;
+            document.getElementById("mod1_pq_avg").innerHTML = `Pop Quiz Ortalama: ${isNaN(mod1_pq_avg) ? "Girilmedi" : mod1_pq_avg.toFixed(2)}`;
 
             const mod1_ks_scores = [
-                parseFloat(document.getElementById("mod1_ks1").value),
-                parseFloat(document.getElementById("mod1_ks2").value),
-                parseFloat(document.getElementById("mod1_ks3").value),
-                parseFloat(document.getElementById("mod1_ks4").value)
+                getInputValue("mod1_ks1"),
+                getInputValue("mod1_ks2"),
+                getInputValue("mod1_ks3"),
+                getInputValue("mod1_ks4")
             ];
             const mod1_ks_avg = calculateAverage(...mod1_ks_scores);
-            document.getElementById("mod1_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${mod1_ks_avg.toFixed(2)}`;
+            document.getElementById("mod1_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${isNaN(mod1_ks_avg) ? "Girilmedi" : mod1_ks_avg.toFixed(2)}`;
 
-            const mod1_spoken = parseFloat(document.getElementById("mod1_spoken").value) || 0;
-            const mod1_online = parseFloat(document.getElementById("mod1_online").value) || 0;
-            const mod1_presentation = parseFloat(document.getElementById("mod1_presentation").value) || 0;
-            const mod1_midterm = parseFloat(document.getElementById("mod1_midterm").value) || 0;
-            const mod1_final_module = parseFloat(document.getElementById("mod1_final_module").value) || 0;
+            const mod1_spoken = getInputValue("mod1_spoken");
+            const mod1_online = getInputValue("mod1_online");
+            const mod1_presentation = getInputValue("mod1_presentation");
+            const mod1_midterm = getInputValue("mod1_midterm");
+            const mod1_final_module = getInputValue("mod1_final_module");
 
             const mod1_total = 
                 (mod1_pq_avg * 0.1) + 
@@ -324,32 +329,32 @@
                 (mod1_midterm * 0.15) + 
                 (mod1_final_module * 0.25);
             
-            document.getElementById("mod1_result").innerHTML = `1. Modül Toplamı: ${mod1_total.toFixed(2)} / 100`;
+            document.getElementById("mod1_result").innerHTML = `1. Modül Toplamı: ${isNaN(mod1_total) ? "Hesaplanamadı" : mod1_total.toFixed(2)} / 100`;
 
             // 2. MODÜL HESAPLAMA
             const mod2_pq_scores = [
-                parseFloat(document.getElementById("mod2_pq1").value),
-                parseFloat(document.getElementById("mod2_pq2").value),
-                parseFloat(document.getElementById("mod2_pq3").value),
-                parseFloat(document.getElementById("mod2_pq4").value)
+                getInputValue("mod2_pq1"),
+                getInputValue("mod2_pq2"),
+                getInputValue("mod2_pq3"),
+                getInputValue("mod2_pq4")
             ];
             const mod2_pq_avg = calculateAverage(...mod2_pq_scores);
-            document.getElementById("mod2_pq_avg").innerHTML = `Pop Quiz Ortalama: ${mod2_pq_avg.toFixed(2)}`;
+            document.getElementById("mod2_pq_avg").innerHTML = `Pop Quiz Ortalama: ${isNaN(mod2_pq_avg) ? "Girilmedi" : mod2_pq_avg.toFixed(2)}`;
 
             const mod2_ks_scores = [
-                parseFloat(document.getElementById("mod2_ks1").value),
-                parseFloat(document.getElementById("mod2_ks2").value),
-                parseFloat(document.getElementById("mod2_ks3").value),
-                parseFloat(document.getElementById("mod2_ks4").value)
+                getInputValue("mod2_ks1"),
+                getInputValue("mod2_ks2"),
+                getInputValue("mod2_ks3"),
+                getInputValue("mod2_ks4")
             ];
             const mod2_ks_avg = calculateAverage(...mod2_ks_scores);
-            document.getElementById("mod2_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${mod2_ks_avg.toFixed(2)}`;
+            document.getElementById("mod2_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${isNaN(mod2_ks_avg) ? "Girilmedi" : mod2_ks_avg.toFixed(2)}`;
 
-            const mod2_spoken = parseFloat(document.getElementById("mod2_spoken").value) || 0;
-            const mod2_online = parseFloat(document.getElementById("mod2_online").value) || 0;
-            const mod2_presentation = parseFloat(document.getElementById("mod2_presentation").value) || 0;
-            const mod2_midterm = parseFloat(document.getElementById("mod2_midterm").value) || 0;
-            const mod2_final_module = parseFloat(document.getElementById("mod2_final_module").value) || 0;
+            const mod2_spoken = getInputValue("mod2_spoken");
+            const mod2_online = getInputValue("mod2_online");
+            const mod2_presentation = getInputValue("mod2_presentation");
+            const mod2_midterm = getInputValue("mod2_midterm");
+            const mod2_final_module = getInputValue("mod2_final_module");
 
             const mod2_total = 
                 (mod2_pq_avg * 0.1) + 
@@ -360,14 +365,14 @@
                 (mod2_midterm * 0.15) + 
                 (mod2_final_module * 0.25);
             
-            document.getElementById("mod2_result").innerHTML = `2. Modül Toplamı: ${mod2_total.toFixed(2)} / 100`;
+            document.getElementById("mod2_result").innerHTML = `2. Modül Toplamı: ${isNaN(mod2_total) ? "Hesaplanamadı" : mod2_total.toFixed(2)} / 100`;
 
             // YIL SONU SINAVI (%40)
-            const final_exam = parseFloat(document.getElementById("final_exam").value) || 0;
+            const final_exam = getInputValue("final_exam");
 
             // GENEL ORTALAMA
             const total = (mod1_total * 0.3) + (mod2_total * 0.3) + (final_exam * 0.4);
-            document.getElementById("result").innerHTML = `GENEL NOT ORTALAMASI: ${total.toFixed(2)} / 100`;
+            document.getElementById("result").innerHTML = `GENEL NOT ORTALAMASI: ${isNaN(total) ? "Hesaplanamadı" : total.toFixed(2)} / 100`;
         }
     </script>
 </body>
