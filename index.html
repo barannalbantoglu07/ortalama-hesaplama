@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Detaylı Not HesaplamaV2</title>
+    <title>Detaylı Not Hesaplama</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* UYARI BANNER */
@@ -144,7 +144,7 @@
 <body>
     <!-- UYARI BANNER -->
     <div class="warning-banner" id="warningBanner">
-        ⚠️ Bu araç tahmini sonuçlar üretir. Kesin notlar için lütfen elle hesaplayın.V2
+        ⚠️ Bu araç tahmini sonuçlar üretir. Kesin notlar için lütfen eğitmeninize danışın.
         <span class="close-btn" onclick="document.getElementById('warningBanner').style.display='none'">×</span>
     </div>
 
@@ -157,52 +157,52 @@
         <h3>4 Pop Quiz (Her biri %2.5, Toplam %10)</h3>
         <div class="exam-group">
             <div class="input-group">
-                <label>1. Pop Quiz:</label> <input type="number" id="mod1_pq1">
+                <label>1. Pop Quiz:</label> <input type="number" id="mod1_pq1" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>2. Pop Quiz:</label> <input type="number" id="mod1_pq2">
+                <label>2. Pop Quiz:</label> <input type="number" id="mod1_pq2" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>3. Pop Quiz:</label> <input type="number" id="mod1_pq3">
+                <label>3. Pop Quiz:</label> <input type="number" id="mod1_pq3" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>4. Pop Quiz:</label> <input type="number" id="mod1_pq4">
+                <label>4. Pop Quiz:</label> <input type="number" id="mod1_pq4" min="0" max="100">
             </div>
             <div class="average" id="mod1_pq_avg"></div>
         </div>
 
         <div class="input-group">
-            <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod1_spoken">
+            <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod1_spoken" min="0" max="100">
         </div>
         <div class="input-group">
-            <label>Online Platform (%10):</label> <input type="number" id="mod1_online">
+            <label>Online Platform (%10):</label> <input type="number" id="mod1_online" min="0" max="100">
         </div>
         <div class="input-group">
-            <label>Presentation (%10):</label> <input type="number" id="mod1_presentation">
+            <label>Presentation (%10):</label> <input type="number" id="mod1_presentation" min="0" max="100">
         </div>
 
         <h3>4 Kısa Sınav (Her biri %5, Toplam %20)</h3>
         <div class="exam-group">
             <div class="input-group">
-                <label>1. Kısa Sınav:</label> <input type="number" id="mod1_ks1">
+                <label>1. Kısa Sınav:</label> <input type="number" id="mod1_ks1" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>2. Kısa Sınav:</label> <input type="number" id="mod1_ks2">
+                <label>2. Kısa Sınav:</label> <input type="number" id="mod1_ks2" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>3. Kısa Sınav:</label> <input type="number" id="mod1_ks3">
+                <label>3. Kısa Sınav:</label> <input type="number" id="mod1_ks3" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>4. Kısa Sınav:</label> <input type="number" id="mod1_ks4">
+                <label>4. Kısa Sınav:</label> <input type="number" id="mod1_ks4" min="0" max="100">
             </div>
             <div class="average" id="mod1_ks_avg"></div>
         </div>
 
         <div class="input-group">
-            <label>Ara Sınav (%15):</label> <input type="number" id="mod1_midterm">
+            <label>Ara Sınav (%15):</label> <input type="number" id="mod1_midterm" min="0" max="100">
         </div>
         <div class="input-group">
-            <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod1_final_module">
+            <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod1_final_module" min="0" max="100">
         </div>
         
         <div class="module-result" id="mod1_result"></div>
@@ -215,52 +215,52 @@
         <h3>4 Pop Quiz (Her biri %2.5, Toplam %10)</h3>
         <div class="exam-group">
             <div class="input-group">
-                <label>1. Pop Quiz:</label> <input type="number" id="mod2_pq1">
+                <label>1. Pop Quiz:</label> <input type="number" id="mod2_pq1" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>2. Pop Quiz:</label> <input type="number" id="mod2_pq2">
+                <label>2. Pop Quiz:</label> <input type="number" id="mod2_pq2" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>3. Pop Quiz:</label> <input type="number" id="mod2_pq3">
+                <label>3. Pop Quiz:</label> <input type="number" id="mod2_pq3" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>4. Pop Quiz:</label> <input type="number" id="mod2_pq4">
+                <label>4. Pop Quiz:</label> <input type="number" id="mod2_pq4" min="0" max="100">
             </div>
             <div class="average" id="mod2_pq_avg"></div>
         </div>
 
         <div class="input-group">
-            <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod2_spoken">
+            <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod2_spoken" min="0" max="100">
         </div>
         <div class="input-group">
-            <label>Online Platform (%10):</label> <input type="number" id="mod2_online">
+            <label>Online Platform (%10):</label> <input type="number" id="mod2_online" min="0" max="100">
         </div>
         <div class="input-group">
-            <label>Presentation (%10):</label> <input type="number" id="mod2_presentation">
+            <label>Presentation (%10):</label> <input type="number" id="mod2_presentation" min="0" max="100">
         </div>
 
         <h3>4 Kısa Sınav (Her biri %5, Toplam %20)</h3>
         <div class="exam-group">
             <div class="input-group">
-                <label>1. Kısa Sınav:</label> <input type="number" id="mod2_ks1">
+                <label>1. Kısa Sınav:</label> <input type="number" id="mod2_ks1" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>2. Kısa Sınav:</label> <input type="number" id="mod2_ks2">
+                <label>2. Kısa Sınav:</label> <input type="number" id="mod2_ks2" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>3. Kısa Sınav:</label> <input type="number" id="mod2_ks3">
+                <label>3. Kısa Sınav:</label> <input type="number" id="mod2_ks3" min="0" max="100">
             </div>
             <div class="input-group">
-                <label>4. Kısa Sınav:</label> <input type="number" id="mod2_ks4">
+                <label>4. Kısa Sınav:</label> <input type="number" id="mod2_ks4" min="0" max="100">
             </div>
             <div class="average" id="mod2_ks_avg"></div>
         </div>
 
         <div class="input-group">
-            <label>Ara Sınav (%15):</label> <input type="number" id="mod2_midterm">
+            <label>Ara Sınav (%15):</label> <input type="number" id="mod2_midterm" min="0" max="100">
         </div>
         <div class="input-group">
-            <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod2_final_module">
+            <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod2_final_module" min="0" max="100">
         </div>
         
         <div class="module-result" id="mod2_result"></div>
@@ -270,7 +270,7 @@
     <div class="module">
         <h2>Yıl Sonu Sınavı (%40)</h2>
         <div class="input-group">
-            <label>Yıl Sonu Sınav Notu:</label> <input type="number" id="final_exam">
+            <label>Yıl Sonu Sınav Notu:</label> <input type="number" id="final_exam" min="0" max="100">
         </div>
     </div>
 
@@ -285,13 +285,17 @@
     <script>
         function calculateAverage(...scores) {
             const validScores = scores.filter(score => !isNaN(score));
-            if (validScores.length === 0) return 0;
+            if (validScores.length === 0) return NaN;
             return validScores.reduce((a, b) => a + b, 0) / validScores.length;
         }
 
         function getInputValue(id) {
             const value = document.getElementById(id).value.trim();
             return value === "" ? NaN : parseFloat(value);
+        }
+
+        function formatResult(value) {
+            return isNaN(value) ? "Hesaplanamadı" : value.toFixed(2);
         }
 
         function calculate() {
@@ -303,7 +307,7 @@
                 getInputValue("mod1_pq4")
             ];
             const mod1_pq_avg = calculateAverage(...mod1_pq_scores);
-            document.getElementById("mod1_pq_avg").innerHTML = `Pop Quiz Ortalama: ${isNaN(mod1_pq_avg) ? "Girilmedi" : mod1_pq_avg.toFixed(2)}`;
+            document.getElementById("mod1_pq_avg").innerHTML = `Pop Quiz Ortalama: ${formatResult(mod1_pq_avg)}`;
 
             const mod1_ks_scores = [
                 getInputValue("mod1_ks1"),
@@ -312,7 +316,7 @@
                 getInputValue("mod1_ks4")
             ];
             const mod1_ks_avg = calculateAverage(...mod1_ks_scores);
-            document.getElementById("mod1_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${isNaN(mod1_ks_avg) ? "Girilmedi" : mod1_ks_avg.toFixed(2)}`;
+            document.getElementById("mod1_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${formatResult(mod1_ks_avg)}`;
 
             const mod1_spoken = getInputValue("mod1_spoken");
             const mod1_online = getInputValue("mod1_online");
@@ -321,15 +325,15 @@
             const mod1_final_module = getInputValue("mod1_final_module");
 
             const mod1_total = 
-                (mod1_pq_avg * 0.1) + 
-                (mod1_spoken * 0.1) + 
-                (mod1_online * 0.1) + 
-                (mod1_presentation * 0.1) +
-                (mod1_ks_avg * 0.2) + 
-                (mod1_midterm * 0.15) + 
-                (mod1_final_module * 0.25);
+                (isNaN(mod1_pq_avg) ? 0 : mod1_pq_avg * 0.1) + 
+                (isNaN(mod1_spoken) ? 0 : mod1_spoken * 0.1) + 
+                (isNaN(mod1_online) ? 0 : mod1_online * 0.1) + 
+                (isNaN(mod1_presentation) ? 0 : mod1_presentation * 0.1) +
+                (isNaN(mod1_ks_avg) ? 0 : mod1_ks_avg * 0.2) + 
+                (isNaN(mod1_midterm) ? 0 : mod1_midterm * 0.15) + 
+                (isNaN(mod1_final_module) ? 0 : mod1_final_module * 0.25);
             
-            document.getElementById("mod1_result").innerHTML = `1. Modül Toplamı: ${isNaN(mod1_total) ? "Hesaplanamadı" : mod1_total.toFixed(2)} / 100`;
+            document.getElementById("mod1_result").innerHTML = `1. Modül Toplamı: ${formatResult(mod1_total)} / 100`;
 
             // 2. MODÜL HESAPLAMA
             const mod2_pq_scores = [
@@ -339,7 +343,7 @@
                 getInputValue("mod2_pq4")
             ];
             const mod2_pq_avg = calculateAverage(...mod2_pq_scores);
-            document.getElementById("mod2_pq_avg").innerHTML = `Pop Quiz Ortalama: ${isNaN(mod2_pq_avg) ? "Girilmedi" : mod2_pq_avg.toFixed(2)}`;
+            document.getElementById("mod2_pq_avg").innerHTML = `Pop Quiz Ortalama: ${formatResult(mod2_pq_avg)}`;
 
             const mod2_ks_scores = [
                 getInputValue("mod2_ks1"),
@@ -348,7 +352,7 @@
                 getInputValue("mod2_ks4")
             ];
             const mod2_ks_avg = calculateAverage(...mod2_ks_scores);
-            document.getElementById("mod2_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${isNaN(mod2_ks_avg) ? "Girilmedi" : mod2_ks_avg.toFixed(2)}`;
+            document.getElementById("mod2_ks_avg").innerHTML = `Kısa Sınav Ortalama: ${formatResult(mod2_ks_avg)}`;
 
             const mod2_spoken = getInputValue("mod2_spoken");
             const mod2_online = getInputValue("mod2_online");
@@ -357,22 +361,26 @@
             const mod2_final_module = getInputValue("mod2_final_module");
 
             const mod2_total = 
-                (mod2_pq_avg * 0.1) + 
-                (mod2_spoken * 0.1) + 
-                (mod2_online * 0.1) + 
-                (mod2_presentation * 0.1) +
-                (mod2_ks_avg * 0.2) + 
-                (mod2_midterm * 0.15) + 
-                (mod2_final_module * 0.25);
+                (isNaN(mod2_pq_avg) ? 0 : mod2_pq_avg * 0.1) + 
+                (isNaN(mod2_spoken) ? 0 : mod2_spoken * 0.1) + 
+                (isNaN(mod2_online) ? 0 : mod2_online * 0.1) + 
+                (isNaN(mod2_presentation) ? 0 : mod2_presentation * 0.1) +
+                (isNaN(mod2_ks_avg) ? 0 : mod2_ks_avg * 0.2) + 
+                (isNaN(mod2_midterm) ? 0 : mod2_midterm * 0.15) + 
+                (isNaN(mod2_final_module) ? 0 : mod2_final_module * 0.25);
             
-            document.getElementById("mod2_result").innerHTML = `2. Modül Toplamı: ${isNaN(mod2_total) ? "Hesaplanamadı" : mod2_total.toFixed(2)} / 100`;
+            document.getElementById("mod2_result").innerHTML = `2. Modül Toplamı: ${formatResult(mod2_total)} / 100`;
 
             // YIL SONU SINAVI (%40)
             const final_exam = getInputValue("final_exam");
 
             // GENEL ORTALAMA
-            const total = (mod1_total * 0.3) + (mod2_total * 0.3) + (final_exam * 0.4);
-            document.getElementById("result").innerHTML = `GENEL NOT ORTALAMASI: ${isNaN(total) ? "Hesaplanamadı" : total.toFixed(2)} / 100`;
+            const total = 
+                (isNaN(mod1_total) ? 0 : mod1_total * 0.3) + 
+                (isNaN(mod2_total) ? 0 : mod2_total * 0.3) + 
+                (isNaN(final_exam) ? 0 : final_exam * 0.4);
+            
+            document.getElementById("result").innerHTML = `GENEL NOT ORTALAMASI: ${formatResult(total)} / 100`;
         }
     </script>
 </body>
