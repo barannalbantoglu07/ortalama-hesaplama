@@ -4,7 +4,6 @@
     <title>Detaylı Not Hesaplama</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* UYARI BANNER */
         .warning-banner {
             background-color: #fff3cd;
             color: #856404;
@@ -24,8 +23,6 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
-
-        /* GENEL STİLLER */
         * { box-sizing: border-box; }
         body { 
             font-family: Arial, sans-serif; 
@@ -71,6 +68,7 @@
             border-radius: 5px;
             width: 80px;
             font-size: 0.9rem;
+            transition: border 0.2s;
         }
         button {
             padding: 12px 20px;
@@ -117,8 +115,6 @@
             font-weight: 600;
             color: #2b6cb0;
         }
-
-        /* MOBİL UYUMLULUK */
         @media (max-width: 600px) {
             .input-group {
                 flex-direction: column;
@@ -153,7 +149,6 @@
     <!-- 1. MODÜL -->
     <div class="module">
         <h2>1. MODÜL (%30)</h2>
-        
         <h3>4 Pop Quiz (Her biri %2.5, Toplam %10)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -170,7 +165,6 @@
             </div>
             <div class="average" id="mod1_pq_avg"></div>
         </div>
-
         <div class="input-group">
             <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod1_spoken">
         </div>
@@ -180,7 +174,6 @@
         <div class="input-group">
             <label>Presentation (%10):</label> <input type="number" id="mod1_presentation">
         </div>
-
         <h3>4 Kısa Sınav (Her biri %5, Toplam %20)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -197,21 +190,18 @@
             </div>
             <div class="average" id="mod1_ks_avg"></div>
         </div>
-
         <div class="input-group">
             <label>Ara Sınav (%15):</label> <input type="number" id="mod1_midterm">
         </div>
         <div class="input-group">
             <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod1_final_module">
         </div>
-        
         <div class="module-result" id="mod1_result"></div>
     </div>
 
     <!-- 2. MODÜL -->
     <div class="module">
         <h2>2. MODÜL (%30)</h2>
-        
         <h3>4 Pop Quiz (Her biri %2.5, Toplam %10)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -228,7 +218,6 @@
             </div>
             <div class="average" id="mod2_pq_avg"></div>
         </div>
-
         <div class="input-group">
             <label>In-Class Spoken Test (%10):</label> <input type="number" id="mod2_spoken">
         </div>
@@ -238,7 +227,6 @@
         <div class="input-group">
             <label>Presentation (%10):</label> <input type="number" id="mod2_presentation">
         </div>
-
         <h3>4 Kısa Sınav (Her biri %5, Toplam %20)</h3>
         <div class="exam-group">
             <div class="input-group">
@@ -255,14 +243,12 @@
             </div>
             <div class="average" id="mod2_ks_avg"></div>
         </div>
-
         <div class="input-group">
             <label>Ara Sınav (%15):</label> <input type="number" id="mod2_midterm">
         </div>
         <div class="input-group">
             <label>Modül Atlama Sınavı (%25):</label> <input type="number" id="mod2_final_module">
         </div>
-        
         <div class="module-result" id="mod2_result"></div>
     </div>
 
@@ -277,12 +263,29 @@
     <button onclick="calculate()">HESAPLA</button>
     <div id="result" style="margin: 0 15px 15px 15px;"></div>
 
-    <!-- FOOTER -->
     <footer>
         <p>Developed with ❤️ by <span class="developer">barann</span> & <span class="developer">DeepSeek</span></p>
     </footer>
 
     <script>
+        function checkEmptyFields() {
+            const inputs = document.querySelectorAll("input[type='number']");
+            let empty = false;
+            inputs.forEach(function(input) {
+                if (input.value.trim() === "") {
+                    empty = true;
+                    input.style.border = "2px solid red";
+                } else {
+                    input.style.border = "";
+                }
+            });
+            if (empty) {
+                alert("Lütfen bütün alanları doldurun!");
+                return false;
+            }
+            return true;
+        }
+
         function calculateAverage(...scores) {
             const validScores = scores.filter(score => !isNaN(score));
             if (validScores.length === 0) return 0;
@@ -290,6 +293,8 @@
         }
 
         function calculate() {
+            if (!checkEmptyFields()) return;
+
             // 1. MODÜL HESAPLAMA
             const mod1_pq_scores = [
                 parseFloat(document.getElementById("mod1_pq1").value),
